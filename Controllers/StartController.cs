@@ -11,12 +11,11 @@ namespace UmbracoProject.Controllers;
 public class StartController : RenderController
 {
     private readonly IUmbracoContextAccessor _umbracoContextAccessor;
-	private readonly IPublishedContentQuery _publishContentQuery;
 
-	public StartController(ILogger<RenderController> logger, ICompositeViewEngine compositeViewEngine, IUmbracoContextAccessor umbracoContextAccessor, IPublishedContentQuery publishedContentQuery) : base(logger, compositeViewEngine, umbracoContextAccessor)
+	public StartController(ILogger<RenderController> logger, ICompositeViewEngine compositeViewEngine, IUmbracoContextAccessor umbracoContextAccessor) : base(logger, compositeViewEngine, umbracoContextAccessor)
     {
         _umbracoContextAccessor = umbracoContextAccessor;
-        _publishContentQuery = publishedContentQuery;
+     
     }
 
     public override IActionResult Index()
@@ -24,7 +23,7 @@ public class StartController : RenderController
         var startPage = CurrentPage as Start;
         if (startPage != null)
         {
-            var model = new StartPageViewModel(startPage, _umbracoContextAccessor, _publishContentQuery);
+            var model = new StartPageViewModel(startPage, _umbracoContextAccessor);
           
             return View(nameof(Start).ToLower(), model);
         }

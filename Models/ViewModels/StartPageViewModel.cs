@@ -6,7 +6,7 @@ namespace UmbracoProject.Models.ViewModels;
 
 public class StartPageViewModel : BasePageModel<Start>
 {
-    public StartPageViewModel(Start content, IUmbracoContextAccessor umbracoContextAccessor, IPublishedContentQuery contentQuery) : base(content, umbracoContextAccessor, contentQuery)
+    public StartPageViewModel(Start content, IUmbracoContextAccessor umbracoContextAccessor) : base(content, umbracoContextAccessor)
     {
     }
 }
